@@ -7,7 +7,7 @@ class NotesController{
         const {user_id} = request.params;
 
         if (rating < 1 || rating > 5) {
-            return response.status(400).send('Rating must be between 1 and 5');
+            return response.status(400).json('Rating must be between 1 and 5');
         }
 
         const [note_id] = await knex("notes").insert({
